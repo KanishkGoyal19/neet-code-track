@@ -1,14 +1,17 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> table = new HashMap<>();
+        HashMap<Integer, Integer> twoSum = new HashMap<>(); 
+
         for (int i = 0; i < nums.length; i++) {
-            int difference = target - nums[i];
-            if (table.containsKey(difference)) {
-                return new int[] {table.get(difference), i};
+            int secondNumber = target - nums[i];
+
+            if (twoSum.containsKey(secondNumber)) {
+                return new int[]{twoSum.get(secondNumber), i}; 
             }
-            table.put(nums[i], i);
+
+            twoSum.put(nums[i], i);
         }
-        throw new IllegalArgumentException("No two sum solution");
+
+        return new int[]{};
     }
 }
-
